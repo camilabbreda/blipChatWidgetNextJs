@@ -16,7 +16,7 @@ export default function Home({ selection }: { selection: string }) {
       case "Digital Trust":
         setOption("Digital Trust");
         break;
-      case "Sustainablity":
+      case "Sustainability":
         setOption("Sustainability");
         break;
       default:
