@@ -1,10 +1,15 @@
 "use client";
 import { BlipChat } from "blip-chat-widget";
 import { useEffect, useState } from "react";
+type tProps = {
+  selection: string;
+  country: string;
+};
 
-export default function Home({ selection }: { selection: string }) {
+export default function Home({ selection, country }: tProps) {
   const [option, setOption] = useState<string | undefined>(undefined);
-  const appKey = `${process.env.NEXT_PUBLIC_BLIP_APP_KEY}`;
+  const [appKey, setAppKey] = useState<string>("");
+
   const authType = `${process.env.NEXT_PUBLIC_BLIP_AUTH_TYPE}`;
   const userIdentity = new Date().getTime().toString();
   const userPassword = new Date().getTime().toString();
@@ -20,13 +25,32 @@ export default function Home({ selection }: { selection: string }) {
         setOption("Sustainability");
         break;
       default:
-        setOption("");
+        setOption("ISO 9001");
         break;
     }
-  }, [selection]);
+    switch (country) {
+      case "USA":
+        console.log("1");
+
+        setAppKey(`${process.env.NEXT_PUBLIC_BLIP_APP_KEY_USA}`);
+        break;
+      case "CANADA | EN":
+        console.log("2");
+
+        setAppKey(`${process.env.NEXT_PUBLIC_BLIP_APP_KEY_CAN_EN}`);
+        break;
+      default:
+        console.log("3");
+
+        setAppKey(`${process.env.NEXT_PUBLIC_BLIP_APP_KEY_USA}`);
+        break;
+    }
+    console.log("selection", selection);
+    console.log("country", country);
+  }, [selection, country]);
 
   useEffect(() => {
-    if (!option) return;
+    if (!option || !appKey) return;
 
     const existingChat = document.getElementById("blip-chat-container");
     if (existingChat) {
@@ -75,7 +99,7 @@ export default function Home({ selection }: { selection: string }) {
       script.remove();
       container.remove();
     };
-  }, [option]);
+  }, [option, appKey]);
 
   return null;
 }
