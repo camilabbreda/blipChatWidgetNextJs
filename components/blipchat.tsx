@@ -55,12 +55,15 @@ export default function Home({ selection }: { selection: string }) {
           },
         })
         .withCustomStyle(
-          `#blip-chat-header {
+          ` #blip-chat-header {
             background-color: #D9DDDC !important;
-          }
-          .blip-chat-titles  {
-            color: black !important
-          }
+            }
+            .blip-chat-titles  {
+              color: black !important
+            }
+            #blip-send-message {
+            background-color: #4b4b4bff !important
+            }
           `
         )
         .withCustomCommonUrl("https://bsigroup.chat.blip.ai/")

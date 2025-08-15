@@ -1,6 +1,6 @@
 "use client";
 import dynamic from "next/dynamic";
-import styles from "./page.module.css";
+import styles from "../styles/page.module.css";
 import { useState } from "react";
 import { Button } from "@mui/material";
 const BlipChatClient = dynamic(() => import("../components/blipchat"), {
