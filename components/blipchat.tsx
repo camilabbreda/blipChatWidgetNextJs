@@ -4,7 +4,10 @@ import { useEffect, useState } from "react";
 
 export default function Home({ selection }: { selection: string }) {
   const [option, setOption] = useState<string | undefined>(undefined);
-
+  const appKey = `${process.env.NEXT_PUBLIC_BLIP_APP_KEY}`;
+  const authType = `${process.env.NEXT_PUBLIC_BLIP_AUTH_TYPE}`;
+  const userIdentity = new Date().getTime().toString();
+  const userPassword = new Date().getTime().toString();
   useEffect(() => {
     switch (selection) {
       case "ISO 9001":
@@ -39,14 +42,12 @@ export default function Home({ selection }: { selection: string }) {
     script.async = true;
     script.onload = () => {
       new BlipChat()
-        .withAppKey(
-          "ZGV2dXNic2lsZWFkc3JvdXRlcjpjYzE0ZjVjZC0yNTYwLTRkYzQtOWViOC1kNTE3NjQyNzRjNzk="
-        )
+        .withAppKey(appKey)
         .withButton({ color: "#2A2A2A", icon: "" })
         .withAuth({
-          authType: "Dev",
-          userIdentity: new Date().getTime().toString(),
-          userPassword: new Date().getTime().toString(),
+          authType,
+          userIdentity,
+          userPassword,
         })
         .withAccount({
           extras: {
