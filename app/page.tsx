@@ -13,9 +13,7 @@ export default function Home() {
   return (
     <div className={styles.page} id="corpo">
       <main className={styles.main}>
-        <div style={{ fontSize: "25px" }}>
-          If you want, change the country selected:
-        </div>
+        <div style={{ fontSize: "25px" }}>Pick a Country:</div>
         <div
           style={{
             width: "220px",
@@ -50,7 +48,7 @@ export default function Home() {
           </Button>
         </div>
         <div>
-          <p style={{ fontSize: "30px" }}>Select a Chatbot to Chat With:</p>
+          <p style={{ fontSize: "25px" }}>Select a Chatbot to Chat With:</p>
         </div>
         <div
           style={{
