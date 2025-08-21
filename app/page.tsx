@@ -96,6 +96,32 @@ export default function Home() {
           >
             Sustainability
           </Button>
+          <Button
+            variant="contained"
+            sx={{
+              backgroundColor: `${
+                selection === "Health and Safety" ? "grey" : "black"
+              }`,
+              color: "white",
+              "&:hover": { backgroundColor: "#333" },
+            }}
+            onClick={() => setSelection("Health and Safety")}
+          >
+            Health and Safety
+          </Button>
+          <Button
+            variant="contained"
+            sx={{
+              backgroundColor: `${
+                selection === "System Management" ? "grey" : "black"
+              }`,
+              color: "white",
+              "&:hover": { backgroundColor: "#333" },
+            }}
+            onClick={() => setSelection("System Management")}
+          >
+            System Management
+          </Button>
         </div>
 
         {selection && (

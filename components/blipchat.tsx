@@ -24,29 +24,27 @@ export default function Home({ selection, country }: tProps) {
       case "Sustainability":
         setOption("Sustainability");
         break;
+      case "Health and Safety":
+        setOption("Health and Safety");
+        break;
+      case "System Management":
+        setOption("System Management");
+        break;
       default:
         setOption("ISO 9001");
         break;
     }
     switch (country) {
       case "USA":
-        console.log("1");
-
         setAppKey(`${process.env.NEXT_PUBLIC_BLIP_APP_KEY_USA}`);
         break;
       case "CANADA | EN":
-        console.log("2");
-
         setAppKey(`${process.env.NEXT_PUBLIC_BLIP_APP_KEY_CAN_EN}`);
         break;
       default:
-        console.log("3");
-
         setAppKey(`${process.env.NEXT_PUBLIC_BLIP_APP_KEY_USA}`);
         break;
     }
-    console.log("selection", selection);
-    console.log("country", country);
   }, [selection, country]);
 
   useEffect(() => {
