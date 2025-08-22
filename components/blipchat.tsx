@@ -63,7 +63,8 @@ export default function Home({ selection, country }: tProps) {
     script.src = "https://unpkg.com/blip-chat-widget";
     script.async = true;
     script.onload = () => {
-      new BlipChat()
+      const blipClient = new BlipChat();
+      blipClient
         .withAppKey(appKey)
         .withButton({ color: "#2A2A2A", icon: "" })
         .withAuth({
@@ -89,6 +90,15 @@ export default function Home({ selection, country }: tProps) {
           `
         )
         .withCustomCommonUrl("https://bsigroup.chat.blip.ai/")
+        .withEventHandler((BlipChat as any).LOAD_EVENT, function () {
+          (blipClient as any).sendMessage({
+            type: "text/plain",
+            content: "Start",
+            metadata: {
+              "#blip.hiddenMessage": true,
+            },
+          });
+        })
         .build();
     };
     document.body.appendChild(script);
