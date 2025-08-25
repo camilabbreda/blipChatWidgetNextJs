@@ -1,6 +1,7 @@
 // types/blip-chat-widget.d.ts
 declare module "blip-chat-widget" {
   export class BlipChat {
+    static LOAD_EVENT: string;
     constructor();
     withAppKey(appKey: string): this;
     withButton(options: { color: string; icon: string }): this;
@@ -20,6 +21,11 @@ declare module "blip-chat-widget" {
     withTarget(target: string): this;
     withCustomStyle(style: string): this;
     withCustomCommonUrl(url: string): this;
+    sendMessage(message: {
+      type: string;
+      content: string;
+      metadata?: Record<string, unknown>;
+    }): void;
     build(): void;
   }
 

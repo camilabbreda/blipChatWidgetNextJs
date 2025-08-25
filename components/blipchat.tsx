@@ -30,6 +30,12 @@ export default function Home({ selection, country }: tProps) {
       case "System Management":
         setOption("System Management");
         break;
+      case "Aerospace":
+        setOption("Aerospace");
+        break;
+      case "Automotive":
+        setOption("Automotive");
+        break;
       default:
         setOption("ISO 9001");
         break;
@@ -90,8 +96,8 @@ export default function Home({ selection, country }: tProps) {
           `
         )
         .withCustomCommonUrl("https://bsigroup.chat.blip.ai/")
-        .withEventHandler((BlipChat as any).LOAD_EVENT, function () {
-          (blipClient as any).sendMessage({
+        .withEventHandler(BlipChat.LOAD_EVENT, function () {
+          blipClient.sendMessage({
             type: "text/plain",
             content: "Start",
             metadata: {
