@@ -170,6 +170,7 @@ export default function Home() {
               System Management
             </Button>
             <Button
+              disabled={country === 'BRAZIL' ? true : false}
               variant="contained"
               sx={{
                 backgroundColor: `${
