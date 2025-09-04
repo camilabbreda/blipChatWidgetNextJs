@@ -9,7 +9,7 @@ const BlipChatClient = dynamic(() => import('../components/blipchat'), {
 
 export default function Home() {
   const [selection, setSelection] = useState<string>('')
-  const [country, setCountry] = useState<string>('USA')
+  const [country, setCountry] = useState<string>('BRAZIL')
   return (
     <div className={styles.page} id="corpo">
       <main className={styles.main}>
@@ -25,7 +25,18 @@ export default function Home() {
           <Button
             variant="contained"
             sx={{
-              backgroundColor: `${country === 'USA' ? 'grey' : 'black'}`,
+              backgroundColor: `${country === 'BRAZIL' ? '#45a26e' : 'black'}`,
+              color: 'white',
+              '&:hover': { backgroundColor: '#333' },
+            }}
+            onClick={() => setCountry('BRAZIL')}
+          >
+            BRAZIL
+          </Button>
+          <Button
+            variant="contained"
+            sx={{
+              backgroundColor: `${country === 'USA' ? '#45a26e' : 'black'}`,
               color: 'white',
               '&:hover': { backgroundColor: '#333' },
             }}
@@ -33,11 +44,12 @@ export default function Home() {
           >
             USA
           </Button>
+
           <Button
             variant="contained"
             sx={{
               backgroundColor: `${
-                country === 'CANADA | EN' ? 'grey' : 'black'
+                country === 'CANADA | EN' ? '#45a26e' : 'black'
               }`,
               color: 'white',
               '&:hover': { backgroundColor: '#333' },
@@ -51,7 +63,7 @@ export default function Home() {
             disabled={true}
             sx={{
               backgroundColor: `${
-                country === 'CANADA | FR' ? 'grey' : 'black'
+                country === 'CANADA | FR' ? '#45a26e' : 'black'
               }`,
               color: 'white',
               '&:hover': { backgroundColor: '#333' },
@@ -60,21 +72,12 @@ export default function Home() {
           >
             CANADA | FR
           </Button>
+
           <Button
             variant="contained"
+            disabled={true}
             sx={{
-              backgroundColor: `${country === 'BRAZIL' ? 'grey' : 'black'}`,
-              color: 'white',
-              '&:hover': { backgroundColor: '#333' },
-            }}
-            onClick={() => setCountry('BRAZIL')}
-          >
-            BRAZIL
-          </Button>
-          <Button
-            variant="contained"
-            sx={{
-              backgroundColor: `${country === 'MEXICO' ? 'grey' : 'black'}`,
+              backgroundColor: `${country === 'MEXICO' ? '#45a26e' : 'black'}`,
               color: 'white',
               '&:hover': { backgroundColor: '#333' },
             }}
@@ -103,7 +106,7 @@ export default function Home() {
               variant="contained"
               sx={{
                 backgroundColor: `${
-                  selection === 'ISO 9001' ? 'grey' : 'black'
+                  selection === 'ISO 9001' ? '#45a26e' : 'black'
                 }`,
                 color: 'white',
                 '&:hover': { backgroundColor: '#333' },
@@ -117,7 +120,7 @@ export default function Home() {
               variant="contained"
               sx={{
                 backgroundColor: `${
-                  selection === 'Digital Trust' ? 'grey' : 'black'
+                  selection === 'Digital Trust' ? '#45a26e' : 'black'
                 }`,
                 color: 'white',
                 '&:hover': { backgroundColor: '#333' },
@@ -130,7 +133,7 @@ export default function Home() {
               variant="contained"
               sx={{
                 backgroundColor: `${
-                  selection === 'Sustainability' ? 'grey' : 'black'
+                  selection === 'Sustainability' ? '#45a26e' : 'black'
                 }`,
                 color: 'white',
                 '&:hover': { backgroundColor: '#333' },
@@ -147,7 +150,7 @@ export default function Home() {
               variant="contained"
               sx={{
                 backgroundColor: `${
-                  selection === 'Health and Safety' ? 'grey' : 'black'
+                  selection === 'Health and Safety' ? '#45a26e' : 'black'
                 }`,
                 color: 'white',
                 '&:hover': { backgroundColor: '#333' },
@@ -160,7 +163,7 @@ export default function Home() {
               variant="contained"
               sx={{
                 backgroundColor: `${
-                  selection === 'System Management' ? 'grey' : 'black'
+                  selection === 'System Management' ? '#45a26e' : 'black'
                 }`,
                 color: 'white',
                 '&:hover': { backgroundColor: '#333' },
@@ -174,7 +177,7 @@ export default function Home() {
               variant="contained"
               sx={{
                 backgroundColor: `${
-                  selection === 'Aerospace' ? 'grey' : 'black'
+                  selection === 'Aerospace' ? '#45a26e' : 'black'
                 }`,
                 color: 'white',
                 '&:hover': { backgroundColor: '#333' },
@@ -191,7 +194,7 @@ export default function Home() {
               variant="contained"
               sx={{
                 backgroundColor: `${
-                  selection === 'Automotive' ? 'grey' : 'black'
+                  selection === 'Automotive' ? '#45a26e' : 'black'
                 }`,
                 color: 'white',
                 '&:hover': { backgroundColor: '#333' },
