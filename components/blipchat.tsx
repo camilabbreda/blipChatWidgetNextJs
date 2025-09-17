@@ -9,6 +9,7 @@ type tProps = {
 export default function Home({ selection, country }: tProps) {
   const [option, setOption] = useState<string | undefined>(undefined)
   const [appKey, setAppKey] = useState<string>('')
+  const [contract, setContract] = useState<string>('')
 
   const authType = `${process.env.NEXT_PUBLIC_BLIP_AUTH_TYPE}`
   const userIdentity = new Date().getTime().toString()
@@ -43,27 +44,39 @@ export default function Home({ selection, country }: tProps) {
     switch (country) {
       case 'USA':
         setAppKey(`${process.env.NEXT_PUBLIC_BLIP_APP_KEY_USA}`)
+        setContract('https://bsigroup.chat.blip.ai/')
         break
       case 'CANADA | EN':
         setAppKey(`${process.env.NEXT_PUBLIC_BLIP_APP_KEY_CAN_EN}`)
+        setContract('https://bsigroup.chat.blip.ai/')
         break
       case 'CANADA | FR':
         setAppKey(`${process.env.NEXT_PUBLIC_BLIP_APP_KEY_CAN_FR}`)
+        setContract('https://bsi.chat.blip.ai/')
         break
       case 'BRAZIL':
         setAppKey(`${process.env.NEXT_PUBLIC_BLIP_APP_KEY_BR}`)
+        setContract('https://bsi.chat.blip.ai/')
         break
       case 'MEXICO':
         setAppKey(`${process.env.NEXT_PUBLIC_BLIP_APP_KEY_MX}`)
+        setContract('https://bsi.chat.blip.ai/')
         break
       default:
         setAppKey(`${process.env.NEXT_PUBLIC_BLIP_APP_KEY_USA}`)
+        setContract('https://bsigroup.chat.blip.ai/')
         break
     }
   }, [selection, country])
-
+  // useEffect(() => {
+  //   console.log('option', option)
+  //   console.log('appKey', appKey)
+  //   console.log('selection', selection)
+  //   console.log('country', country)
+  //   console.log('contract', contract)
+  // }, [option, appKey, selection, country])
   useEffect(() => {
-    if (!option || !appKey) return
+    if (!option || !appKey || !contract) return
 
     const existingChat = document.getElementById('blip-chat-container')
     if (existingChat) {
@@ -89,6 +102,7 @@ export default function Home({ selection, country }: tProps) {
         })
         .withAccount({
           extras: {
+            pageUrl: window.location.href,
             option,
           },
         })
@@ -104,7 +118,7 @@ export default function Home({ selection, country }: tProps) {
             }
           `
         )
-        .withCustomCommonUrl('https://bsi.chat.blip.ai/')
+        .withCustomCommonUrl(contract)
         .withEventHandler(BlipChat.LOAD_EVENT, function () {
           blipClient.sendMessage({
             type: 'text/plain',
@@ -122,7 +136,7 @@ export default function Home({ selection, country }: tProps) {
       script.remove()
       container.remove()
     }
-  }, [option, appKey])
+  }, [option, appKey, contract])
 
   return null
 }

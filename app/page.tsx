@@ -60,7 +60,7 @@ export default function Home() {
           </Button>
           <Button
             variant="contained"
-            disabled={true}
+            disabled={false}
             sx={{
               backgroundColor: `${
                 country === 'CANADA | FR' ? '#45a26e' : 'black'
@@ -75,7 +75,7 @@ export default function Home() {
 
           <Button
             variant="contained"
-            disabled={true}
+            disabled={false}
             sx={{
               backgroundColor: `${country === 'MEXICO' ? '#45a26e' : 'black'}`,
               color: 'white',
@@ -117,6 +117,7 @@ export default function Home() {
             </Button>
 
             <Button
+              disabled={country === 'CANADA | FR' ? true : false}
               variant="contained"
               sx={{
                 backgroundColor: `${
@@ -130,6 +131,7 @@ export default function Home() {
               Digital Trust
             </Button>
             <Button
+              disabled={country === 'CANADA | FR' ? true : false}
               variant="contained"
               sx={{
                 backgroundColor: `${
@@ -147,6 +149,7 @@ export default function Home() {
             style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}
           >
             <Button
+              disabled={country === 'CANADA | FR' ? true : false}
               variant="contained"
               sx={{
                 backgroundColor: `${
@@ -160,6 +163,7 @@ export default function Home() {
               Health and Safety
             </Button>
             <Button
+              disabled={country === 'CANADA | FR' ? true : false}
               variant="contained"
               sx={{
                 backgroundColor: `${
@@ -173,7 +177,9 @@ export default function Home() {
               System Management
             </Button>
             <Button
-              disabled={country === 'BRAZIL' ? true : false}
+              disabled={
+                country === 'BRAZIL' || country === 'CANADA | FR' ? true : false
+              }
               variant="contained"
               sx={{
                 backgroundColor: `${
@@ -191,6 +197,7 @@ export default function Home() {
             style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}
           >
             <Button
+              disabled={country === 'CANADA | FR' ? true : false}
               variant="contained"
               sx={{
                 backgroundColor: `${
