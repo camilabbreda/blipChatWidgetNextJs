@@ -44,11 +44,11 @@ export default function Home({ selection, country }: tProps) {
     switch (country) {
       case 'USA':
         setAppKey(`${process.env.NEXT_PUBLIC_BLIP_APP_KEY_USA}`)
-        setContract('https://bsigroup.chat.blip.ai/')
+        setContract('https://bsi.chat.blip.ai/')
         break
       case 'CANADA | EN':
         setAppKey(`${process.env.NEXT_PUBLIC_BLIP_APP_KEY_CAN_EN}`)
-        setContract('https://bsigroup.chat.blip.ai/')
+        setContract('https://bsi.chat.blip.ai/')
         break
       case 'CANADA | FR':
         setAppKey(`${process.env.NEXT_PUBLIC_BLIP_APP_KEY_CAN_FR}`)
@@ -68,13 +68,13 @@ export default function Home({ selection, country }: tProps) {
         break
     }
   }, [selection, country])
-  // useEffect(() => {
-  //   console.log('option', option)
-  //   console.log('appKey', appKey)
-  //   console.log('selection', selection)
-  //   console.log('country', country)
-  //   console.log('contract', contract)
-  // }, [option, appKey, selection, country])
+  useEffect(() => {
+    console.log('option', option)
+    console.log('appKey', appKey)
+    console.log('selection', selection)
+    console.log('country', country)
+    console.log('contract', contract)
+  }, [option, appKey, selection, country])
   useEffect(() => {
     if (!option || !appKey || !contract) return
 
