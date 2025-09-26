@@ -64,7 +64,7 @@ export default function Home({ selection, country }: tProps) {
         break
       default:
         setAppKey(`${process.env.NEXT_PUBLIC_BLIP_APP_KEY_USA}`)
-        setContract('https://bsigroup.chat.blip.ai/')
+        setContract('https://bsi.chat.blip.ai/')
         break
     }
   }, [selection, country])

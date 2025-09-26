@@ -117,7 +117,6 @@ export default function Home() {
             </Button>
 
             <Button
-              disabled={country === 'CANADA | FR' ? true : false}
               variant="contained"
               sx={{
                 backgroundColor: `${
@@ -131,7 +130,6 @@ export default function Home() {
               Digital Trust
             </Button>
             <Button
-              disabled={country === 'CANADA | FR' ? true : false}
               variant="contained"
               sx={{
                 backgroundColor: `${
@@ -149,7 +147,6 @@ export default function Home() {
             style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}
           >
             <Button
-              disabled={country === 'CANADA | FR' ? true : false}
               variant="contained"
               sx={{
                 backgroundColor: `${
@@ -163,7 +160,6 @@ export default function Home() {
               Health and Safety
             </Button>
             <Button
-              disabled={country === 'CANADA | FR' ? true : false}
               variant="contained"
               sx={{
                 backgroundColor: `${
@@ -177,9 +173,7 @@ export default function Home() {
               System Management
             </Button>
             <Button
-              disabled={
-                country === 'BRAZIL' || country === 'CANADA | FR' ? true : false
-              }
+              disabled={country === 'BRAZIL' ? true : false}
               variant="contained"
               sx={{
                 backgroundColor: `${
@@ -197,7 +191,6 @@ export default function Home() {
             style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}
           >
             <Button
-              disabled={country === 'CANADA | FR' ? true : false}
               variant="contained"
               sx={{
                 backgroundColor: `${
